@@ -1,0 +1,16 @@
+{
+  "name": "my-api",
+  "version": "1.0.0",
+  "description": "store-manager api",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Ihemegbulam",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  }
+}
