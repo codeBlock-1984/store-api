@@ -41,7 +41,11 @@ var appRouter = function(app){
 		res.send(sales);
 	});
 
-	
+	app.get("/api/v1/sales/:ID", function(req, res){
+		var specRecord = sales.filter( function(obj) {return obj.ID ==req.params.ID});
+		res.json(specRecord);
+	});
+
 
 	app.post("/api/v1/sales", function(req, res){
 		sales[sales.length] = {
