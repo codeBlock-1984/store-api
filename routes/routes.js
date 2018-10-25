@@ -15,9 +15,16 @@ var appRouter = function(app){
 		res.send("Welcome to Store Manager API! POST and GET requests available for the following endpoints: /api/v1/products, /api/v1/sales. Thank you!");
 	});
 
-	app.get("/api/v1/products", function(req, res){
-		res.send(products);
+	//app.get("/api/v1/products", function(req, res){
+	//	res.send(products);
+	//});
+
+	app.get("/api/v1/products/:ID", function(req,res) {
+		var specProd = products.filter( function(obj) {return obj.ID ==req.params.ID});
+		res.json(specProd);
 	});
+
+
 
 	app.post("/api/v1/products", function(req, res){
 		products[products.length] = {
@@ -33,6 +40,8 @@ var appRouter = function(app){
 	app.get("/api/v1/sales", function(req, res){
 		res.send(sales);
 	});
+
+	
 
 	app.post("/api/v1/sales", function(req, res){
 		sales[sales.length] = {
