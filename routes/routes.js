@@ -19,6 +19,13 @@ var appRouter = function(app){
 		res.send(products);
 	});
 
+	app.get("/api/v1/products/:ID", function(req,res) {
+		var specProd = products.filter( function(obj) {return obj.ID ==req.params.ID});
+		res.json(specProd);
+	});
+
+
+
 	app.post("/api/v1/products", function(req, res){
 		products[products.length] = {
 		ID: req.body.ID,
@@ -33,6 +40,12 @@ var appRouter = function(app){
 	app.get("/api/v1/sales", function(req, res){
 		res.send(sales);
 	});
+
+	app.get("/api/v1/sales/:ID", function(req, res){
+		var specRecord = sales.filter( function(obj) {return obj.ID ==req.params.ID});
+		res.json(specRecord);
+	});
+
 
 	app.post("/api/v1/sales", function(req, res){
 		sales[sales.length] = {
